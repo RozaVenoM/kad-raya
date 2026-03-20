@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kad Raya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay">
+
+    <button id="startBtn">Nak Raya</button>
+
+</div>
+
+<div class="container">
+
+<img src="images/smoke.png" alt="Logo" class="smoke">
+
+<img src="images/logo.png" alt="Logo" class="logo">
+
+    <img src="images/border-biru.png" alt="Border Biru" class="border-biru">
+
+    <img src="images/galaxy.png" alt="Galaxy" class="galaxy">
+
+    <img src="images/masjid.png" alt="Masjid" class="masjid">
+
+    <img src="images/islamic pattern.png" alt="Islamic Pattern" class="pattern">
+
+    <img src="images/cloud.png" alt="Awan" class="awan">
+        <img src="images/cloud.png" alt="Awan" class="awan1">
+        <img src="images/cloud.png" alt="Awan" class="awan2">
+
+    <img src="images/1.png" alt="Logo" class="text1">
+     <img src="images/2.png" alt="Logo" class="text2">
+     <img src="images/3.png" alt="Logo" class="text3">
+     <img src="images/4.png" alt="Logo" class="text4">
+     <img src="images/5.png" alt="Logo" class="text5">
+     <img src="images/6.png" alt="Logo" class="text6">
+     <img src="images/7.png" alt="Logo" class="text7">
+     <img src="images/8.png" alt="Logo" class="text8">
+
+
+</div>
+
+<script>
+const btn = document.getElementById("startBtn");
+const overlay = document.querySelector(".overlay");
+const container = document.getElementById("container");
+
+btn.addEventListener("click", () => {
+    btn.classList.add("slideUp"); // button slide ke atas
+    setTimeout(() => {
+        overlay.style.display = "none"; // hide overlay
+        container.style.opacity = "1";   // start anim container
+    }, 800); // sama dengan transition button
+});
+</script>
+
+</body>
+</html>

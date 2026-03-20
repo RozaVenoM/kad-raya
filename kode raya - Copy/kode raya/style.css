@@ -1,0 +1,490 @@
+/* Reset */
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(162, 235, 78);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container tetap 1080x1400, center page */
+/* Container utama */
+.container {
+    position: relative;
+    width: 1080px;
+    height: 1400px;
+
+    margin: 0 auto;       /* center page */
+    background-color: rgb(162, 235, 78); /* dalam putih */
+
+    /* Border luar gabungan hitam + biru */
+    border: 15px solid; /* tebal border */
+    border-image: linear-gradient(45deg, #000000, #1E90FF) 1; /* hitam ke biru */
+    border-radius: 15px; /* optional, buat smooth corner */
+
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 1080px;
+    height: 1400px;
+
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border: 8px solid black;
+    border-radius: 15px;
+
+    /* outer glow biru */
+    box-shadow: 0 0 20px rgba(30,144,255,0.6);
+    
+    overflow: hidden;
+}
+
+/* Semua image dalam container */
+.container img, .text1 {
+    width: 1080px;       /* kekalkan size asal */
+    height: 1400px;
+    object-fit: contain;  /* maintain aspect ratio */
+    display: block;
+}
+
+/* 🌌 Galaxy (kanan → kiri) */
+.galaxy {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0;
+    animation: galaxyMasuk 3s ease forwards;
+}
+
+/* 🔵 Border PNG (kiri → kanan) */
+.border-biru {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0;
+    transform: translateX(-100%);
+
+    animation: borderSlide 1.5s ease forwards;
+    animation-delay: 0.5s;
+
+    z-index: 2;
+}
+
+/* 🎴 Kad Raya */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 600px;
+
+    opacity: 0;
+    transform: translate(-50%, 150px) scale(0.8);
+
+    animation: kadMasuk 2s ease forwards;
+    animation-delay: 1.5s;
+
+    z-index: 3;
+}
+
+/* Masjid */
+.masjid {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0;
+    transform: translateY(200px) scale(0.5) rotate(20deg);
+
+    animation: masjidMasuk 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 2s;
+
+    z-index: 1;
+
+    filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.6));
+}
+
+/* Pattern */
+.pattern {
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0.8;
+    animation: patternMasuk 1.8s ease forwards;
+    animation-delay: 0.2s;
+
+    z-index: 0;
+}
+
+/* Awan layer 1 */
+.awan {
+    position: absolute;
+    top: 9%;
+    left: 20%;
+    transform: translate(-130%, -50%);
+    
+    width: 1080px;
+    height: 1400px;
+    opacity: 1;
+
+    animation: awanMasuk 3s ease forwards, awanJiggling 6s ease-in-out infinite;
+    animation-delay: 0.5s, 3s;
+    
+    z-index: 1;
+}
+
+/* Awan layer 2 */
+.awan1 {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    transform: translate(-1%, -10%);
+    
+    width: 1080px;
+    height: 1400px;
+    opacity: 1;
+
+    animation: awanMasuk 3.4s ease forwards, jigglingawan1 5s ease-in-out infinite;
+    animation-delay: 2.3s, 5s;
+
+    z-index: 1;
+}
+
+/* Awan layer 3 */
+.awan2 {
+    position: absolute;
+    top: 55%;
+    left: -30%;
+    transform: translate(-1%, -5%);
+    
+    width: 1080px;
+    height: 1400px;
+    opacity: 1;
+
+    animation: awanMasuk1 3.4s ease forwards, jigglingawan2 5s ease-in-out infinite;
+    animation-delay: 3s, 6s;
+
+    z-index: 1;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0;
+    animation: logoFadeIn 3s ease forwards;
+    animation-delay: 2s;
+
+    z-index: 10;
+}
+
+/* Smoke */
+.smoke {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 1080px;
+    height: 1400px;
+
+    opacity: 0;
+    animation: logoSmoke 3s ease forwards;
+    animation-delay: 0.5s;
+
+    z-index: 10;
+}
+
+/* Text / image text */
+.text1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 2s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text1.animate {
+    animation: slideIn 2s ease forwards;
+}
+
+
+.text2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 2.5s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 2.3s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 2.7s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 2.9s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 3.1s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text7 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 3.3s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+.text8 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1400px;
+    object-fit: contain;
+
+    /* mula invisible supaya tidak statik semasa delay */
+    opacity: 0;
+
+    animation: slideInLeft 2s ease forwards;
+    animation-delay: 3.5s; /* tunggu 2s sebelum start animasi */
+    z-index: 2;
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+/* Keyframes slide dari kiri + fade in */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0; /* pastikan mula invisible */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* fully visible selepas animation */
+    }
+}
+
+/* Galaxy masuk */
+@keyframes galaxyMasuk {
+    0% { right: -100%; opacity: 0; }
+    100% { right: 0; opacity: 1; }
+}
+
+/* Border slide kiri → kanan */
+@keyframes borderSlide {
+    0% { opacity: 0; transform: translateX(-100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Kad naik dari bawah */
+@keyframes kadMasuk {
+    0% { opacity: 0; transform: translate(-50%, 200px) scale(0.6); }
+    60% { opacity: 1; transform: translate(-50%, -20px) scale(1.05); }
+    100% { transform: translate(-50%, 0) scale(1); }
+}
+
+/* Masjid masuk */
+@keyframes masjidMasuk {
+    0% { opacity: 0; transform: translateY(200px) scale(0.4) rotate(25deg); }
+    50% { opacity: 1; transform: translateY(-25px) scale(1.08) rotate(-5deg); }
+    70% { transform: translateY(10px) scale(0.98) rotate(2deg); }
+    100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Pattern masuk */
+@keyframes patternMasuk {
+    0% { left: -100%; }
+    100% { left: 0; }
+}
+
+/* Awan masuk + jiggling */
+@keyframes awanMasuk {
+    0% { transform: translate(-100%, -50%); }
+    100% { transform: translate(0, -50%); }
+}
+
+@keyframes awanMasuk1 {
+    0% { transform: translate(-100%, -50%); }
+    100% { transform: translate(0, -50%); }
+}
+
+@keyframes awanJiggling {
+    0% { transform: translate(0, -50%); }
+    25% { transform: translate(10px, -45%); }
+    50% { transform: translate(-10px, -55%); }
+    75% { transform: translate(5px, -52%); }
+    100% { transform: translate(0, -50%); }
+}
+
+@keyframes jigglingawan1 {
+    0% { transform: translate(0, -50%); }
+    25% { transform: translate(7px, -47%); }
+    50% { transform: translate(-13px, -50%); }
+    75% { transform: translate(9px, -48%); }
+    100% { transform: translate(0, -50%); }
+}
+
+@keyframes jigglingawan2 {
+    0% { transform: translate(0px, -50%); }
+    25% { transform: translate(12px, -45%); }
+    50% { transform: translate(-7px, -47%); }
+    75% { transform: translate(15px, -53%); }
+    100% { transform: translate(0, -50%); }
+}
+
+/* Logo fade in */
+@keyframes logoFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Smoke fade in */
+@keyframes logoSmoke {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Overlay & button */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;   /* background gelap sebelum start */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#startBtn {
+    padding: 20px 40px;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #1E90FF, #00BFFF);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Button slide ke atas dan hilang */
+#startBtn.slideUp {
+    transform: translateY(-200px);
+    opacity: 0;
+}
+
+/* Container semua layer */
+.container {
+    opacity: 0; /* mula invisible */
+    transition: opacity 0.5s ease;
+}
+.container.show {
+    opacity: 1; /* bila button hilang, tunjuk container & start animasi */
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kad Raya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<img src="images/smoke.png" alt="Logo" class="logo">
+
+<img src="images/logo.png" alt="Logo" class="logo">
+
+    <img src="images/border-biru.png" alt="Border Biru" class="border-biru">
+
+    <img src="images/galaxy.png" alt="Galaxy" class="galaxy">
+
+    <img src="images/masjid.png" alt="Masjid" class="masjid">
+
+    <img src="images/islamic pattern.png" alt="Islamic Pattern" class="pattern">
+
+    <img src="images/cloud.png" alt="Awan" class="awan">
+        <img src="images/cloud.png" alt="Awan" class="awan1">
+        <img src="images/cloud.png" alt="Awan" class="awan2">
+
+</div>
+
+</body>
+</html>
